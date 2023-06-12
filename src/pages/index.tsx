@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <div className='h-screen bg-slate-100'>
+    <div className="h-screen bg-slate-100">
 
       <TopBar/>
 
@@ -17,9 +17,13 @@ export default function Home() {
               <label className="block text-gray-700 text-sm font-bold mb-2 text-left">
                 Ready to shorten?
               </label>
-              <input className="shadow text-left appearance-none border rounded w-128 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url" type="text" placeholder="Enter the link" />
+              <input className="shadow text-left appearance-none border rounded w-128 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" id="url" type="url" placeholder="Enter the link" required autoFocus/>
             </div>
           </form>
+
+          <p className="text-center text-gray-500 text-xs fixed bottom-0 py-5">
+          &copy;2023 namespace.media
+          </p>
 
       </div>
     </div>

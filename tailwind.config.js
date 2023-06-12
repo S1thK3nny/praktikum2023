@@ -15,6 +15,9 @@ module.exports = {
       spacing: {
         '128': '32rem',
       },
+      backgroundImage: {
+        'bgtexture': "url('/img/background.png')",
+      },
     },
   },
   plugins: [],
