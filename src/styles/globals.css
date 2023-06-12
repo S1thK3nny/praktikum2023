@@ -29,10 +29,10 @@ body {
 
 @layer base {
   button {
-    @apply uppercase bg-indigo-500 
+    @apply uppercase bg-coolorange
     px-5 py-4
     transition-all duration-200
-    hover:bg-indigo-400;
+    hover:bg-coolorangebrighter;
   }  
 }
 
