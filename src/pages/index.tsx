@@ -13,20 +13,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="h-screen bg-customBG bg-no-repeat bg-cover bg-center">
+      <div className="h-screen bg-customBG bg-no-repeat bg-cover bg-center absolute w-screen">
 
-        <TopBar />
+        <TopBar/>
 
-        <div className="justify-center items-center h-screen flex">
+        <div className="justify-center items-center h-screen flex px-8">
 
-          <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500">
+          <form className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500">
             <div className="mb-4">
 
               <label className="block text-gray-700 text-md font-bold mb-2 text-left">
                 Ready to shorten?
               </label>
-              <input className="shadow text-left appearance-none border rounded-l-lg w-128 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" id="url" type="url" placeholder="Enter the link" required autoFocus />
-              <button className='text-white shadow-md rounded-r-lg'>Shorten</button>
+              <input className="shadow text-left appearance-none border rounded-l-lg w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" id="url" type="url" placeholder="Enter the link" required autoFocus />
+              <button className='text-white shadow-md rounded-r-lg w-full md:w-32'>Shorten</button>
 
             </div>
           </form>
