@@ -1,26 +1,30 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { connectToMongo } from '../utils/connectToMongo'
+import { NextApiRequest, NextApiResponse } from "next";
 import redirect from '../../models/redirect'
+import {connectToMongo} from '../../utils/connectToMongo'
 
-type Data = Link
-
-type Link = {
-  link: string
+type Data = {
+    url: string
 }
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+    req: NextApiRequest,
+    res: NextApiResponse<Data>
 ) {
-    if(req.method === 'GET') {
-        await connectToMongo();
-        const key = req.body.key;
-        console.log(key)
-        return res.redirect('../')
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    await connectToMongo();
+    const key = req.body.key
+
+    if (key === "[code]") {
+        res.json({ url: '/' });
+        return
     }
-    else {
-        console.log("User tried anything but GET: api/redirect.ts")
-        console.log(req.method)
+
+    const url = await redirect.findOne({ key: key });
+
+    if (url) {
+        res.json({ url: url.url });
+        return
     }
+    res.json({ url: '/' + key });
 }

@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import TopBar from "./TopBar"
+import TopBar from "../components/TopBar"
 import Head from 'next/head'
 import React, { useRef, useState } from 'react';
 

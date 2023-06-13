@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {connectToMongo} from '../utils/connectToMongo'
+import {connectToMongo} from '../../utils/connectToMongo'
 import redirect from '../../models/redirect'
-import generateKey from '../utils/keygen'
+import generateKey from '../../utils/keygen'
 //Use .. to get out of a folder
 
 //Data is what will be sent in the end. In this case, if something goes wrong it is one of the latter. This is stupid, but who cares.
@@ -33,10 +33,17 @@ export default async function handler(
     }
     await connectToMongo()
 
-    //Sends this over to be saved in the "redirect" folder of the database
-    const URI = await redirect.create({ key: generateKey(6), url: req.body.url})
+    let keyLength = 6;
+    let key = generateKey(keyLength)
+    while (await redirect.findOne({ key: key })) {
+      keyLength++;
+      key = generateKey(keyLength);
+  }
 
-    res.status(200).json({ link: "http://localhost:3000/" + URI.key }) //This has to be at the bottom, otherwise ERR_HTTP_HEADERS_SENT
+    //Sends this over to be saved in the "redirect" folder of the database
+    const URI = await redirect.create({ key: key, url: req.body.url})
+
+    res.status(200).json({ link: process.env.WEBSITE + URI.key }) //This has to be at the bottom, otherwise ERR_HTTP_HEADERS_SENT
   }
 
   else {
