@@ -12,7 +12,7 @@ const TopBar = () => {
                 <a href="https://github.com/S1thK3nny/praktikum2023" className="inline-flex group
                 hover:scale-110 transition-all duration-200 ease-in-out 
                 hover:font-semibold items-center justify-center relative"> 
-                    Source Code&nbsp;<Icon icon = {<DiOpensource size="100"/>} />
+                    Source Code&nbsp;<Icon icon = {<DiOpensource size="50"/>} />
                 </a>
             </div>
             <div className="text-center font-semibold text-xl">
