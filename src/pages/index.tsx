@@ -1,8 +1,11 @@
 import { Inter } from 'next/font/google'
 import TopBar from "./TopBar"
 import Head from 'next/head'
+import React, { useRef, useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
+
+
 
 export default function Home() {
   return (
@@ -26,7 +29,7 @@ export default function Home() {
                 Ready to shorten?
               </label>
               <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" 
-              id="textField" type="url" 
+              id="textField" type="url"
               placeholder="Enter the link" required autoFocus/>
 
               <button className='text-white shadow-md rounded-lg w-full md:w-32 md:rounded-r-lg md:rounded-l-none'>Shorten</button>
