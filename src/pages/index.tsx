@@ -25,8 +25,11 @@ export default function Home() {
               <label className="block text-gray-700 text-md font-bold mb-2 text-left">
                 Ready to shorten?
               </label>
-              <input className="shadow text-left appearance-none border rounded-l-lg w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" id="url" type="url" placeholder="Enter the link" required autoFocus />
-              <button className='text-white shadow-md rounded-r-lg w-full md:w-32'>Shorten</button>
+              <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" 
+              id="textField" type="url" 
+              placeholder="Enter the link" required autoFocus/>
+
+              <button className='text-white shadow-md rounded-lg w-full md:w-32 md:rounded-r-lg md:rounded-l-none'>Shorten</button>
 
             </div>
           </form>
@@ -37,6 +40,7 @@ export default function Home() {
 
         </div>
       </div>
+      <script></script>
     </>
   )
 }

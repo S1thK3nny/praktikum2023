@@ -1,38 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# URL Shortener
 
-## Getting Started
+![GitHub repo size](https://img.shields.io/github/repo-size/S1thK3nny/praktikum2023)
+![GitHub contributors](https://img.shields.io/github/contributors/S1thK3nny/praktikum2023)
+![GitHub stars](https://img.shields.io/github/stars/S1thK3nny/praktikum2023?style=social)
+![GitHub forks](https://img.shields.io/github/forks/S1thK3nny/praktikum2023?style=social)
 
-First, run the development server:
+Welcome to the URL Shortener project! This project was developed as part of my school internship at namespace.media. The goal of this project was to learn and apply Fullstack development concepts using various tools and technologies including TypeScript, Node.js, Next.js, Tailwind CSS, MongoDB, and Mongoose.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The URL Shortener is a web application that allows users to shorten long URLs into shorter, more manageable links. It provides a simple and user-friendly interface to enter a long URL, which is then transformed into a shorter version. Users can share these shortened URLs and they will be redirected to the original long URL when clicked.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Shorten long URLs into concise links
+- Customizable URLs with custom aliases
+- Track and analyze link usage statistics
+- User authentication and user-specific short links
+- Dashboard for managing shortened links
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Technologies Used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- TypeScript
+- Node.js
+- Next.js
+- Tailwind CSS
+- MongoDB
+- Mongoose
