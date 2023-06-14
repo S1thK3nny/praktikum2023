@@ -20,11 +20,16 @@ export default async function handler(
         return
     }
 
-    const url = await redirect.findOne({ key: key });
+    const data = await redirect.findOne({ key: key });
 
-    if (url) {
-        res.json({ url: url.url });
+    if (data) {
+        res.json({ url: data.url });
         return
     }
-    res.json({ url: '/' + key });
+    //Redirect user to the main page incase the link does not work
+    else {
+        const website = process.env.WEBSITE || "default-value";
+        res.json({ url: website });
+        return
+    }
 }
