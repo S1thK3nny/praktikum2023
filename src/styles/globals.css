@@ -33,7 +33,7 @@ body {
     px-5 py-4
     transition-all duration-200
     hover:bg-coolorangebrighter;
-  }  
+  }
 }
 
 @layer components {
