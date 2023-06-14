@@ -18,7 +18,7 @@ export default function invalid() {
             </Head>
             <div className="h-screen bg-customBGInvalid bg-no-repeat bg-cover bg-center absolute w-screen">
                 <TopBar_Red/>
-                <div className="justify-center items-center h-screen flex flex-col gap-16 md:gap-32 text-center">
+                <div className="justify-center items-center h-screen flex flex-col gap-16 md:gap-24 text-center">
                     <h1 className='font-bold, text-4xl md:text-8xl'>
                         Something went wrong...
                     </h1>
@@ -26,7 +26,7 @@ export default function invalid() {
                         <h2 className='font-semibold, text-2xl md:text-4xl'>
                             You seem to have followed an invalid link, and now we are both here....
                         </h2>
-                        <button className='shadow-lg mt-4 md:w-96 md:h-24 bg-indigo-600 hover:bg-indigo-500 rounded-lg md:text-2xl' onClick={redirectToMain}>
+                        <button className='shadow-lg mt-4 md:mt-8 md:w-96 md:h-24 bg-indigo-600 hover:bg-indigo-500 rounded-lg md:text-2xl' onClick={redirectToMain}>
                             Return to main page?
                         </button>
                     </div>
