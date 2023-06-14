@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+  let copiedAmount = 1;
 
   async function onHandleSubmit(event: any) {
     //Typescript is typesafe. Use '(... as HTMLInputElement)' to grab the .value
@@ -18,19 +19,30 @@ export default function Home() {
     const link = document.getElementById('link')!
     const submitButton = document.getElementById('submitButton')!
 
-    const alertDiv = document.getElementById('alertDiv')!
-
     //This prevents a page reload.
     event.preventDefault()
 
     if(submitted && isURL(textFieldInput)) {
+
+      if(copiedAmount === 20) {
+        submitButton.textContent = "Stop"
+        return;
+      }
+
+      if(submitButton.textContent?.includes('Copied!')) {
+        submitButton.textContent = 'Copied! ' + copiedAmount;
+        copiedAmount++;
+        return;
+      }
+      
       try {
         await navigator.clipboard.writeText(link.textContent!);
         submitButton.textContent = 'Copied!'
-        return;
       } catch (error) {
         submitButton.textContent = 'Failed!'
       }
+
+      return;
     }
 
     setSubmitted(true);

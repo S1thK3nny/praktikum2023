@@ -9,14 +9,6 @@ Welcome to the URL Shortener project! This project was developed as part of my s
 
 The URL Shortener is a web application that allows users to shorten long URLs into shorter, more manageable links. It provides a simple and user-friendly interface to enter a long URL, which is then transformed into a shorter version. Users can share these shortened URLs and they will be redirected to the original long URL when clicked.
 
-## Features
-
-- Shorten long URLs into concise links
-- Customizable URLs with custom aliases
-- Track and analyze link usage statistics
-- User authentication and user-specific short links
-- Dashboard for managing shortened links
-
 ## Technologies Used
 
 - TypeScript
@@ -25,3 +17,4 @@ The URL Shortener is a web application that allows users to shorten long URLs in
 - Tailwind CSS
 - MongoDB
 - Mongoose
+- Axios
