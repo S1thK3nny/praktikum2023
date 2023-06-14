@@ -1,4 +1,4 @@
-const Icon = ({ icon} : {icon:any}) => {
+const Icon = ({ icon } : {icon:any}) => {
     return (
     <div className="icon group-hover:bg-transparent group-hover:text-white">
             {icon}

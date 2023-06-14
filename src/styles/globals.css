@@ -41,7 +41,7 @@ body {
     @apply relative flex items-center justify-center 
     transition-all duration-500 ease-in-out
     h-7 w-7 shadow-lg
-    text-indigo-500 bg-white
+    text-black bg-white
     rounded-2xl hover:rounded-md;
   }
 }

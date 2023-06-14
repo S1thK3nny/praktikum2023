@@ -1,16 +1,16 @@
 import { DiOpensource } from 'react-icons/di';
 import Icon from './Icon';
 
-const TopBar = () => {
+const TopBar_Red = () => {
     return (
         <nav className="fixed top-0 w-full py-3
         items-left px-5 flex-col columns-3
-        bg-indigo-500
+        bg-red-500
         text-white shadow-md">
 
         {/* Wrap this in a div, otherwise the whole nav is selectable. */}
             <div className="text-left">
-                <a href="https://github.com/S1thK3nny/praktikum2023" className="inline-flex group
+                <a href="https://github.com/S1thK3nny/praktikum2023" id='link' className="inline-flex group
                 hover:scale-110 transition-all duration-200 ease-in-out 
                 hover:font-semibold items-center justify-center relative"> 
                     Source Code&nbsp;<Icon icon = {<DiOpensource size="50"/>} />
@@ -25,4 +25,4 @@ const TopBar = () => {
     );
 };
 
-export default TopBar;
+export default TopBar_Red;
