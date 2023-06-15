@@ -1,8 +1,9 @@
 import { Inter } from 'next/font/google'
 import TopBar from "../components/TopBar"
 import Head from 'next/head'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import isURL from "../utils/isURL"
+import {handleInputChange, hideAlertShowLink} from "../utils/sharedComponents"
 import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -68,32 +69,13 @@ export default function Home() {
     
   }
 
-  const handleInputChange = () => {
-    // Reset the submitted state when a new input is entered
-    setSubmitted(false);
-    const submitButton = document.getElementById('submitButton')!
-    const alertDiv = document.getElementById('alertDiv')!
-
-    submitButton.textContent = 'Shorten'
-
-    if(!alertDiv.classList.contains('hidden')) {
-      alertDiv.classList.add('hidden')
-    }
+  const handleInputChangeTextField = () => {
+      // Reset the submitted state when a new input is entered
+      setSubmitted(false);
+      handleInputChange('Shorten')
   };
 
-  const hideAlertShowLink = (hide:boolean) => {
-    const alertDiv = document.getElementById('alertDiv')!
-    const hiddenDiv = document.getElementById('hiddenDiv')!
 
-    if(!hide && alertDiv.classList.contains('hidden')) {
-      alertDiv.classList.remove('hidden')
-      hiddenDiv.classList.add('hidden')
-    }
-    else if(hide && hiddenDiv.classList.contains('hidden')) {
-      alertDiv.classList.add('hidden')
-      hiddenDiv.classList.remove('hidden')
-    }
-  }
  
   return (
     <>
@@ -115,7 +97,7 @@ export default function Home() {
               </label>
 
               <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" 
-              id="textField" type="url" onChange={handleInputChange}
+              id="textField" type="url" onChange={handleInputChangeTextField}
               placeholder="Enter the link" required autoFocus/>
 
               <button className='text-white shadow-md rounded-lg w-full md:w-32 md:rounded-r-lg md:rounded-l-none' id='submitButton'>Shorten</button>
