@@ -11,7 +11,7 @@ export default function invalid() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="h-screen bg-customBGStats bg-no-repeat bg-cover bg-center absolute w-screen">
-                <TopBar backgroundColor={'bg-lime-500'}/>
+                <TopBar backgroundColor={'bg-lime-500'} showMain={true}/>
                 <div className="justify-center items-center h-screen flex flex-col gap-16 md:gap-24 text-center">
                     <h1 className='font-bold, text-4xl md:text-8xl'>
                         Something went wrong...

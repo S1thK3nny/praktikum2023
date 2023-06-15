@@ -105,7 +105,7 @@ export default function Home() {
 
       <div className="h-screen bg-customBG bg-no-repeat bg-cover bg-center absolute w-screen">
 
-        <TopBar backgroundColor={'bg-indigo-500'}/>
+        <TopBar backgroundColor={'bg-indigo-500'} showMain={false}/>
 
         <div className="justify-center items-center h-screen flex px-8">
           <form className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500" onSubmit={onHandleSubmit}>
