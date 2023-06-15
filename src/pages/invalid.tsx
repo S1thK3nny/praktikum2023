@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import TopBar from '@/components/TopBar';
+import Copyright from '@/components/copyright';
 
 export default function invalid() {
     const router = useRouter();
@@ -17,7 +18,7 @@ export default function invalid() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="h-screen bg-customBGInvalid bg-no-repeat bg-cover bg-center absolute w-screen">
-                <TopBar backgroundColor={'bg-red-500'} showMain={true}/>
+                <TopBar backgroundColor={'bg-red-500'} showMain={true} />
                 <div className="justify-center items-center h-screen flex flex-col gap-16 md:gap-24 text-center">
                     <h1 className='font-bold text-4xl md:text-8xl'>
                         Something went wrong...
@@ -30,11 +31,9 @@ export default function invalid() {
                             Return to main page?
                         </button>
                     </div>
-                    <p className="text-center text-gray-500 text-xs fixed bottom-0 py-5">
-                        &copy;2023 namespace.media
-                    </p>
+                    <Copyright />
                 </div>
             </div>
         </>
-      )
+    )
 }

@@ -3,8 +3,9 @@ import TopBar from "../components/TopBar"
 import Head from 'next/head'
 import React, { useState } from 'react';
 import isURL from "../utils/isURL"
-import {handleInputChange, hideAlertShowLink} from "../utils/sharedComponents"
+import { handleInputChange, hideAlertShowLink } from "../utils/sharedComponents"
 import axios from 'axios'
+import Copyright from '@/components/copyright';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,19 +24,19 @@ export default function Home() {
     //This prevents a page reload.
     event.preventDefault()
 
-    if(submitted && isURL(textFieldInput)) {
+    if (submitted && isURL(textFieldInput)) {
 
-      if(copiedAmount === 20) {
+      if (copiedAmount === 20) {
         submitButton.textContent = "Stop"
         return;
       }
 
-      if(submitButton.textContent?.includes('Copied!')) {
+      if (submitButton.textContent?.includes('Copied!')) {
         submitButton.textContent = 'Copied! ' + copiedAmount;
         copiedAmount++;
         return;
       }
-      
+
       try {
         await navigator.clipboard.writeText(link.textContent!);
         submitButton.textContent = 'Copied!'
@@ -49,9 +50,9 @@ export default function Home() {
     setSubmitted(true);
 
     //If it's a correct URL, create the key and show it.
-    if(isURL(textFieldInput)) {
+    if (isURL(textFieldInput)) {
       console.log('This is a URL: ' + textFieldInput)
-      const res = await axios.post(process.env.WEBSITE + "api/create", { url: textFieldInput});
+      const res = await axios.post(process.env.WEBSITE + "api/create", { url: textFieldInput });
       const data = await res.data;
 
       hideAlertShowLink(true);
@@ -66,17 +67,17 @@ export default function Home() {
       console.log('This is NOT a URL: ' + textFieldInput)
       hideAlertShowLink(false);
     }
-    
+
   }
 
   const handleInputChangeTextField = () => {
-      // Reset the submitted state when a new input is entered
-      setSubmitted(false);
-      handleInputChange('Shorten')
+    // Reset the submitted state when a new input is entered
+    setSubmitted(false);
+    handleInputChange('Shorten')
   };
 
 
- 
+
   return (
     <>
       <Head>
@@ -87,7 +88,7 @@ export default function Home() {
 
       <div className="h-screen bg-customBG bg-no-repeat bg-cover bg-center absolute w-screen">
 
-        <TopBar backgroundColor={'bg-indigo-500'} showMain={false}/>
+        <TopBar backgroundColor={'bg-indigo-500'} showMain={false} />
 
         <div className="justify-center items-center h-screen flex px-8">
           <form className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500" onSubmit={onHandleSubmit}>
@@ -96,21 +97,21 @@ export default function Home() {
                 Ready to shorten?
               </label>
 
-              <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on" 
-              id="textField" type="url" onChange={handleInputChangeTextField}
-              placeholder="Enter the link" required autoFocus/>
+              <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on"
+                id="textField" type="url" onChange={handleInputChangeTextField}
+                placeholder="Enter the link" required autoFocus />
 
               <button className='text-white shadow-md rounded-lg w-full md:w-32 md:rounded-r-lg md:rounded-l-none' id='submitButton'>Shorten</button>
 
               <div className='mt-4 text-md md:text-lg hidden items-center justify-center"' id='hiddenDiv'>
                 <div>
                   <label className="text-black text-center">
-                      Shortened link:&nbsp;
-                    </label>
+                    Shortened link:&nbsp;
+                  </label>
 
-                    <a href='/' className="text-blue-500 hover:underline" id='link'>
-                      ${process.env.WEBSITE}
-                    </a>
+                  <a href='/' className="text-blue-500 hover:underline" id='link'>
+                    ${process.env.WEBSITE}
+                  </a>
 
                 </div>
               </div>
@@ -127,9 +128,7 @@ export default function Home() {
             </div>
           </form>
 
-          <p className="text-center text-gray-500 text-xs fixed bottom-0 py-5">
-            &copy;2023 namespace.media
-          </p>
+          <Copyright />
 
         </div>
       </div>

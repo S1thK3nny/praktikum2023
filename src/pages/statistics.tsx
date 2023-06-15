@@ -3,6 +3,7 @@ import TopBar from '@/components/TopBar';
 import { handleInputChange, hideAlertShowLink } from "../utils/sharedComponents"
 import axios from 'axios';
 import React, { useState } from 'react';
+import Copyright from '@/components/copyright';
 
 //Whatever comes before the string is what the response will receive, so if you type link, you will get link. Not url!
 type Statistics = {
@@ -89,9 +90,9 @@ export default function Statistics() {
                 <meta name="description" content="Who doesn't love stalking?" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="h-screen bg-customBGStats bg-no-repeat bg-cover bg-center absolute w-screen">
+            <div className="overflow-auto h-full bg-customBGStats bg-no-repeat bg-cover bg-center absolute w-screen">
                 <TopBar backgroundColor={'bg-lime-500'} showMain={true} />
-                <div className="justify-center items-center h-screen flex flex-col gap-5 text-center">
+                <div className="justify-center items-center h-screen flex flex-col gap-2 text-center">
 
                     <h1 className='font-bold text-4xl md:text-8xl mb-10'>
                         Want to know more about your users?
@@ -123,10 +124,12 @@ export default function Statistics() {
                         </div>
                     </form>
 
-                    <div className="container mx-auto px-1 md:px-4 hidden overflow-auto overflow-x-auto table-fixed" id='hiddenDiv'>
-                        <table className="bg-white text-black justify-center text-xs w-full md:text-lg">
+                    <div className="container mx-auto px-1 md:px-4 hidden mb-9
+                    overflow-auto overflow-x-auto" id='hiddenDiv'>
+                        <table className="bg-white text-black justify-center text-xs w-full md:text-lg
+                        rounded-lg shadow-lg border-indigo-500">
                             <thead>
-                                <tr className='py-4 px-1 md:px-4 border-b'>
+                                <tr className='py-4 px-1 md:px-4 fill-slate-500'>
                                     <th>Clicked</th>
                                     <th>Language</th>
                                     <th>Browser Agent</th>
@@ -141,9 +144,7 @@ export default function Statistics() {
                         </table>
                     </div>
 
-                    <p className="text-center text-gray-500 text-xs fixed bottom-0 py-5">
-                        &copy;2023 namespace.media
-                    </p>
+                    <Copyright/>
 
                 </div>
             </div>
