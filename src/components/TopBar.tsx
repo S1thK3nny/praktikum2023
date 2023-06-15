@@ -1,12 +1,11 @@
 import { DiOpensource } from 'react-icons/di';
 import Icon from './Icon';
 
-const TopBar = () => {
+const TopBar = ({ backgroundColor } : {backgroundColor:string}) => {
+    const navClasses = `fixed top-0 w-full py-3 items-left px-5 flex-col columns-3 ${backgroundColor} text-white shadow-md`;
+
     return (
-        <nav className="fixed top-0 w-full py-3
-        items-left px-5 flex-col columns-3
-        bg-indigo-500
-        text-white shadow-md">
+        <nav className={navClasses}>
 
         {/* Wrap this in a div, otherwise the whole nav is selectable. */}
             <div className="text-left">
