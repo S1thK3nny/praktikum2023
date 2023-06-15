@@ -13,6 +13,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'customBG': "url('/background.png')",
         'customBGInvalid': "url('/background_invalid.png')",
+        'customBGStats': "url('/background_stats.png')",
       },
       colors: {
         coolorange: '#FF715B',

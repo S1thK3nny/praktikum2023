@@ -1,27 +1,52 @@
 import { DiOpensource } from 'react-icons/di';
+import { BsFillDatabaseFill } from 'react-icons/bs';
 import Icon from './Icon';
 
-const TopBar = ({ backgroundColor } : {backgroundColor:string}) => {
-    const navClasses = `fixed top-0 w-full py-3 items-left px-5 flex-col columns-3 ${backgroundColor} text-white shadow-md`;
+const TopBar = ({ backgroundColor }: { backgroundColor: string }) => {
+  const navClasses = `fixed top-0 w-full py-3 px-2 md:px-5 ${backgroundColor} text-white shadow-md`;
+  const statisticsHREF = `${process.env.WEBSITE}statistics`;
 
-    return (
-        <nav className={navClasses}>
+  return (
+    <nav className={navClasses}>
+      <div className="w-full flex items-center justify-start">
+        <div>
 
-        {/* Wrap this in a div, otherwise the whole nav is selectable. */}
-            <div className="text-left">
-                <a href="https://github.com/S1thK3nny/praktikum2023" className="inline-flex group
-                hover:scale-110 transition-all duration-200 ease-in-out 
-                hover:font-semibold items-center justify-center relative"> 
-                    Source Code&nbsp;<Icon icon = {<DiOpensource size="50"/>} />
-                </a>
+          <a
+            href="https://github.com/S1thK3nny/praktikum2023"
+            className="group flex 
+            hover:scale-110 transition-all duration-200 ease-in-out hover:font-semibold 
+            items-center relative 
+            text-md md:text-xl">
+
+            <div className='hidden md:block'>
+                <span className="mr-1">Source Code</span>
             </div>
-            <div className="text-center font-semibold text-xl">
-                <label>
-                    URL Shortener
-                </label>
+            <Icon icon={<DiOpensource size="25" />} />
+          </a>
+
+        </div>
+        <div className="flex-grow flex items-center justify-center md:font-semibold text-lg md:text-xl">
+          <label>URL Shortener</label>
+        </div>
+
+        <div>
+          <a
+            href={statisticsHREF}
+            className="group flex 
+            hover:scale-110 transition-all duration-200 ease-in-out hover:font-semibold 
+            items-center relative text-md md:text-xl">
+
+            <Icon icon={<BsFillDatabaseFill size="25" />} />
+            <div className='hidden md:block'>
+                <span className="ml-1">&nbsp;Statistics</span>
             </div>
-        </nav>
-    );
+            
+          </a>
+        </div>
+
+      </div>
+    </nav>
+  );
 };
 
 export default TopBar;
