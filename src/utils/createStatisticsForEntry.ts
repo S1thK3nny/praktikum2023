@@ -5,7 +5,7 @@ import * as Bowser from 'bowser';
 export default async function createStatistics(req: NextApiRequest, key: string) {
     let userAgent;
     let language;
-    if (req) { //If you are on the server and you get a 'req' property from your context. We take the req from ../pages/api/create.ts
+    if (req) { //If you are on the server and you get a 'req' property from your context.
       userAgent = req.headers['user-agent']; //Get the user-agent from the headers
       language = req.headers['accept-language'];
     } else {
@@ -24,9 +24,8 @@ export default async function createStatistics(req: NextApiRequest, key: string)
 
 
     const statisticsForThisLink = await statistics.create({ 
-      key: key, 
-      clicks: 0, 
-      created: new Date(),
+      key: key,
+      clicked: new Date(),
       language: preferredLanguage,
       browser_agent: userAgent,
       browser: browserName, 

@@ -1,7 +1,6 @@
 interface IStatistics {
     key:string;
-    clicks:Number;
-    created:Date;
+    clicked:Date;
     language:string;
     browser_agent:string;
     browser:string;

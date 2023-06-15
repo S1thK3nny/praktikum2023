@@ -9,8 +9,7 @@ type Data = Statistics | StatisticsNotFound
 
 //Whatever comes before the string is what the response will receive, so if you type link, you will get link. Not url!
 type Statistics = {
-    clicks:Number;
-    created:Date;
+    clicked:Date;
     language:string;
     browser_agent:string;
     browser:string;
@@ -37,8 +36,7 @@ export default async function handler(
 
     if(foundStats) {
         res.status(200).json({
-            clicks: foundStats.clicks, 
-            created: foundStats.created,
+            clicked: foundStats.clicked,
             language: foundStats.language,
             browser_agent: foundStats.userAgent,
             browser: foundStats.browser,

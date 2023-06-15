@@ -1,11 +1,20 @@
-import { NextPage } from "next";
+import { NextApiRequest, NextPage } from "next";
 import axios from "axios";
 
 export async function getServerSideProps(context: any) {
-  //'code' has to match with filename, otherwise it will be undefined
-  const key = context.query.code;
-  const res = await axios.post(process.env.WEBSITE + "api/redirect", { key: key });
+  //Careful, upper/lowercase is important.
+  const userAgent = context.req.headers['user-agent'];
+  const userLanguage = context.req.headers['accept-language'];
 
+  const key = context.query.code;
+  const res = await axios.post(process.env.WEBSITE + "api/redirect", { key: key }, {
+    headers: {
+      'User-Agent': userAgent,
+      'accept-language': userLanguage
+    }
+  });
+  
+  
   if (res.status !== 200) {
     return
   }
@@ -34,3 +43,7 @@ const Redirect: NextPage = () => {
 };
 
 export default Redirect;
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}

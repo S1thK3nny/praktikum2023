@@ -7,11 +7,7 @@ const blogSchema = new Schema<IStatistics> ({
             type: String,
             required:true
         },
-        clicks:{
-            type: Number,
-            required:true
-        },
-        created:{
+        clicked:{
             type: Date,
             required:true
         },
