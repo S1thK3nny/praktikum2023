@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import redirect from '../../models/redirect'
 import {connectToMongo} from '../../utils/connectToMongo'
+import statistics from '../../models/statistics'
 
 type Data = {
     url: string
@@ -19,6 +20,11 @@ export default async function handler(
 
     if (data) {
         res.json({ url: data.url });
+
+        const statisticsEntry = await statistics.findOne({ key: key });
+        statisticsEntry.clicks++;
+        await statisticsEntry.save();
+
         return
     }
     //Redirect user to the main page incase the link does not work

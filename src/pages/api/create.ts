@@ -2,7 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {connectToMongo} from '../../utils/connectToMongo'
 import redirect from '../../models/redirect'
+
 import generateKey from '../../utils/keygen'
+import createStatistics from '@/utils/createStatisticsForEntry'
 //Use .. to get out of a folder
 
 //Data is what will be sent in the end. In this case, if something goes wrong it is one of the latter. This is stupid, but who cares.
@@ -43,7 +45,8 @@ export default async function handler(
 
     //Sends this over to be saved in the "redirect" folder of the database
     const URI = await redirect.create({ key: key, url: req.body.url})
-
+    createStatistics(req, key);
+    
     res.status(200).json({ url: process.env.WEBSITE + URI.key }) //This has to be at the bottom, otherwise ERR_HTTP_HEADERS_SENT
   }
 
