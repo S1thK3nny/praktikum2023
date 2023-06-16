@@ -3,6 +3,7 @@
 import { DiOpensource } from 'react-icons/di';
 import { BsFillDatabaseFill, BsFillHouseDoorFill } from 'react-icons/bs';
 import Icon from './Icon';
+import Link from 'next/link';
 
 type TopBarProps = {
   backgroundColor: string;
@@ -18,7 +19,7 @@ const TopBar = ({ backgroundColor, showMain }: TopBarProps) => {
       <div className="w-full flex items-center">
 
         <div className='w-1/3 flex justify-start'>
-          <a href="https://github.com/S1thK3nny/praktikum2023"
+          <Link href="https://github.com/S1thK3nny/praktikum2023"
             className="group flex
             hover:scale-110 transition-all duration-200 ease-in-out hover:font-semibold 
             items-stretch relative 
@@ -28,7 +29,7 @@ const TopBar = ({ backgroundColor, showMain }: TopBarProps) => {
               <span className="mr-1">Source Code</span>
             </div>
             <Icon icon={<DiOpensource size="25" />} />
-          </a>
+          </Link>
         </div>
 
         <div className="flex-grow content-center 
@@ -39,7 +40,7 @@ const TopBar = ({ backgroundColor, showMain }: TopBarProps) => {
         </div>
 
         <div className='w-1/3 flex justify-end'>
-          <a href={mainOrStatistics}
+          <Link href={mainOrStatistics}
             className="group flex
             hover:scale-110 transition-all duration-200 ease-in-out hover:font-semibold text-md md:text-xl justify-end">
 
@@ -55,7 +56,7 @@ const TopBar = ({ backgroundColor, showMain }: TopBarProps) => {
               </span>
             </div>
 
-          </a>
+          </Link>
         </div>
 
       </div>

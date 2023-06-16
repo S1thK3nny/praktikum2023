@@ -6,7 +6,7 @@ import Copyright from '@/components/copyright';
 export default function invalid() {
     const router = useRouter();
 
-    const redirectToMain = () => {
+    const RedirectToMain = () => {
         router.push('/');
     }
 
@@ -27,7 +27,7 @@ export default function invalid() {
                         <h2 className='font-semibold, text-2xl md:text-4xl'>
                             You seem to have followed an invalid link, and now we are both here....
                         </h2>
-                        <button className='shadow-lg mt-4 md:mt-8 md:w-96 md:h-24 bg-indigo-600 hover:bg-indigo-500 rounded-lg md:text-2xl' onClick={redirectToMain}>
+                        <button className='shadow-lg mt-4 md:mt-8 md:w-96 md:h-24 bg-indigo-600 hover:bg-indigo-500 rounded-lg md:text-2xl' onClick={RedirectToMain}>
                             Return to main page?
                         </button>
                     </div>
