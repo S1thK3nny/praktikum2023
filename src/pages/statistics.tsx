@@ -4,6 +4,7 @@ import { handleInputChange, hideAlertShowLink } from "../utils/sharedComponents"
 import axios from 'axios';
 import React, { useState } from 'react';
 import Copyright from '@/components/copyright';
+import formatDate from '@/utils/formatDate';
 
 //Whatever comes before the string is what the response will receive, so if you type link, you will get link. Not url!
 type Statistics = {
@@ -54,7 +55,7 @@ export default function Statistics() {
             const row = document.createElement("tr");
 
             const clickedCell = document.createElement("td");
-            clickedCell.textContent = item.clicked.toString(); // Convert Date to string
+            clickedCell.textContent = formatDate(item.clicked); // Convert Date to string
             row.appendChild(clickedCell);
 
             const languageCell = document.createElement("td");
@@ -127,9 +128,11 @@ export default function Statistics() {
                     <div className="container mx-auto px-1 md:px-4 hidden mb-9
                     overflow-auto overflow-x-auto" id='hiddenDiv'>
                         <table className="bg-white text-black justify-center text-xs w-full md:text-lg
-                        rounded-lg shadow-lg border-indigo-500">
+                        border-indigo-400 border-4 border-separate 
+                        border-opacity-50 hover:border-opacity-100 transition-all duration-500
+                        rounded-lg shadow-lg">
                             <thead>
-                                <tr className='py-4 px-1 md:px-4 fill-slate-500'>
+                                <tr className='py-4 px-1 md:px-4'>
                                     <th>Clicked</th>
                                     <th>Language</th>
                                     <th>Browser Agent</th>
