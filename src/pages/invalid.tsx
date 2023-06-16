@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 import TopBar from '@/components/TopBar';
 import Copyright from '@/components/copyright';
 
-export default function invalid() {
-    const router = useRouter();
+//make sure you start with a capital letter, React does NOT like it when you do not.
+export default function Invalid() {
+    const Router = useRouter();
 
     const RedirectToMain = () => {
-        router.push('/');
+        Router.push('/');
     }
 
     return (
