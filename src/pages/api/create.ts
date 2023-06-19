@@ -4,7 +4,6 @@ import {connectToMongo} from '../../utils/connectToMongo'
 import redirect from '../../models/redirect'
 
 import generateKey from '../../utils/keygen'
-import createStatistics from '@/utils/createStatisticsForEntry'
 //Use .. to get out of a folder
 
 //Data is what will be sent in the end. In this case, if something goes wrong it is one of the latter. This is stupid, but who cares.

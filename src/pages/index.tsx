@@ -53,7 +53,7 @@ export default function Home() {
     //If it's a correct URL, create the key and show it.
     if (isURL(textFieldInput)) {
       console.log('This is a URL: ' + textFieldInput)
-      const res = await axios.post(process.env.REACT_APP_WEBSITE + "api/create", { url: textFieldInput });
+      const res = await axios.post("/api/create", { url: textFieldInput });
       const data = await res.data;
 
       hideAlertShowLink(true);

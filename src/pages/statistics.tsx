@@ -29,7 +29,7 @@ export default function Statistics() {
 
         const textFieldInput = (document.getElementById('keyTextField') as HTMLInputElement).value;
 
-        const res = await axios.post(process.env.REACT_APP_WEBSITE + "api/statistics", { key: textFieldInput });
+        const res = await axios.post("/api/statistics", { key: textFieldInput });
 
         if (res.data.error || res.data.statistics.length === 0) {
             console.log('This is NOT a valid key: ' + textFieldInput);

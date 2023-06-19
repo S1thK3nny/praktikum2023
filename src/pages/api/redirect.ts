@@ -26,7 +26,7 @@ export default async function handler(
     }
     //Redirect user to the main page incase the link does not work
     else {
-        const website = process.env.REACT_APP_WEBSITE + 'invalid' || "default-value";
+        const website = process.env.REACT_APP_WEBSITE + '/invalid' || "default-value";
         res.json({ url: website });
         return
     }
