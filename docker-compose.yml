@@ -7,12 +7,14 @@ services:
       - ./mongodb:/data/db
 
   app:
-    build: .
+    image: ghcr.io/S1thK3nny/praktikum2023:latest
     ports:
       - 3000:3000
     environment:
-      - MONGO_URI = $${{ secrets.MONGO_URI }}
-      - WEBSITE = $${{ secrets.WEBSITE }}
+      - MONGO_URI = ${MONGO_URI}
+      - WEBSITE = ${WEBSITE}
+    env_file:
+      - .env
     depends_on:
       - mongodb
 
