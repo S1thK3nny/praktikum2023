@@ -42,7 +42,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and Push Docker image
-        run: docker compose up --no-start
+        run: docker compose up -d --no-start
         
       - name: Push image
-        run: docker compose push
+        run: docker push
