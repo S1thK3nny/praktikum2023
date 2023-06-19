@@ -45,4 +45,4 @@ jobs:
         run: docker compose up -d --build --no-start
         
       - name: Push the image
-        run: docker push ghcr.io/s1thk3nny/praktikum2023
+        run: docker compose push
