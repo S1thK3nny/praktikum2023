@@ -43,3 +43,6 @@ jobs:
 
       - name: Build and Push Docker image
         run: docker compose up --no-start
+        
+      - name: Push image
+        run: docker compose push
