@@ -7,7 +7,7 @@ services:
       - ./mongodb:/data/db
 
   app:
-    image: ghcr.io/S1thK3nny/praktikum2023:latest
+    image: ghcr.io/s1thk3nny/praktikum2023:latest
     ports:
       - 3000:3000
     environment:
