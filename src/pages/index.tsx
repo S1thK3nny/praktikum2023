@@ -110,7 +110,7 @@ export default function Home() {
                     Shortened link:&nbsp;
                   </label>
 
-                  <Link href='/' className="text-blue-500 hover:underline" id='link'>
+                  <Link href='/' className="text-blue-500 hover:underline" id='link' target='_top'>
                     ${process.env.WEBSITE}
                   </Link>
 
