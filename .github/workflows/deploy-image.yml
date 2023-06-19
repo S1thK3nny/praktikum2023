@@ -41,8 +41,5 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build Docker image
-        run: docker compose -f docker-compose.yml build
-        
-      - name: Push Docker image
-        run: docker compose -f docker-compose.yml push
+      - name: Build and Push Docker image
+        run: docker compose up
