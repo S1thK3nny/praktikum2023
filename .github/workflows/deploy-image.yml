@@ -44,7 +44,8 @@ jobs:
       - name: Build and Push Docker image
         run: docker compose up -d --no-start
         
-      - name: Push image
-        run: 
-          docker tag praktikum2023 ghcr.io/s1thk3nny/praktikum2023:tag
-          docker image push ghcr.io/s1thk3nny/praktikum2023:tag
+      - name: Tag the image
+        run: docker tag praktikum2023 ghcr.io/s1thk3nny/praktikum2023:tag
+        
+      - name: Push the image
+        run: docker image push ghcr.io/s1thk3nny/praktikum2023:tag
