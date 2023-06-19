@@ -46,7 +46,7 @@ export default async function handler(
     //Sends this over to be saved in the "redirect" folder of the database
     const URI = await redirect.create({ key: key, url: req.body.url})
 
-    res.status(200).json({ url: process.env.WEBSITE + URI.key }) //This has to be at the bottom, otherwise ERR_HTTP_HEADERS_SENT
+    res.status(200).json({ url: process.env.REACT_APP_WEBSITE + URI.key }) //This has to be at the bottom, otherwise ERR_HTTP_HEADERS_SENT
   }
 
   else {

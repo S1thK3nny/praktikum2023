@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    WEBSITE: process.env.WEBSITE,
+    REACT_APP_WEBSITE: process.env.REACT_APP_WEBSITE,
   },
 }
 

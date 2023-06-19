@@ -7,7 +7,7 @@ export async function getServerSideProps(context: any) {
   const userLanguage = context.req.headers['accept-language'];
 
   const key = context.query.code;
-  const res = await axios.post(process.env.WEBSITE + "api/redirect", { key: key }, {
+  const res = await axios.post(process.env.REACT_APP_WEBSITE + "api/redirect", { key: key }, {
     headers: {
       'User-Agent': userAgent,
       'accept-language': userLanguage
