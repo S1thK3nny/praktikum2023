@@ -40,4 +40,4 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
-        run: docker compose build --push
+        run: docker compose build
