@@ -47,7 +47,7 @@ jobs:
         run: docker compose build --pull --no-cache
         
       - name: Tag Docker image
-        run: docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWERCASE }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWERCASE }}:${{ github.sha }}
+        run: docker tag praktikum2023_app:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWERCASE }}:${{ github.sha }}
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/s1thk3nny/praktikum2023:3
