@@ -13,6 +13,7 @@ type TopBarProps = {
 const TopBar = ({ backgroundColor, showMain }: TopBarProps) => {
   const navClasses = `fixed top-0 w-full py-3 px-2 md:px-5 ${backgroundColor} text-white shadow-md`;
   const mainOrStatistics = showMain ? `${process.env.WEBSITE}`: `${process.env.WEBSITE}statistics`;
+  console.log(process.env.WEBSITE)
 
   return (
     <nav className={navClasses}>
