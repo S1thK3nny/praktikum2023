@@ -1,6 +1,7 @@
 import { connect } from "mongoose";
 
 const url = process.env.MONGO_URI;
+console.log(process.env.MONGO_URI)
 export const connectToMongo = async () => 
     connect(url || "")
     .then(result => console.log("Database connected!: connectToMongo.ts"))
