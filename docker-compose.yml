@@ -11,8 +11,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      - MONGO_URI = ${MONGO_URI}
-      - WEBSITE = ${WEBSITE}
+      - MONGO_URI = ${{ secrets.MONGO_URI }}
+      - WEBSITE = ${{ secrets.WEBSITE }}
     env_file:
       - .env
     depends_on:
