@@ -20,7 +20,7 @@ export default async function handler(
 
     if (data) {
         res.json({ url: data.url });
-        createStatistics(req, key);
+        createStatistics(req, key, data.expireAt);
 
         return
     }

@@ -6,4 +6,5 @@ interface IStatistics {
     browser:string;
     platform:string;
     user_OS:string;
+    expireAt:Date;
 }

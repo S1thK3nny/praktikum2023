@@ -2,39 +2,44 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 //This is how it will look in the DB
-const blogSchema = new Schema<IStatistics> ({
-        key:{
-            type: String,
-            required:true
-        },
-        clicked:{
-            type: Date,
-            required:true
-        },
-        language:{
-            type: String,
-            required:true
-        },
-        browser_agent:{
-            type: String,
-            required:true,
-        },
-        browser:{
-            type: String,
-            required:true,
-        },
-        platform: {
-            type: String,
-            required:true,
-        },
-        user_OS:{
-            type: String,
-            required: true,
-        }
-    }, 
+const blogSchema = new Schema<IStatistics>({
+    key: {
+        type: String,
+        required: true
+    },
+    clicked: {
+        type: Date,
+        required: true
+    },
+    language: {
+        type: String,
+        required: true
+    },
+    browser_agent: {
+        type: String,
+        required: true,
+    },
+    browser: {
+        type: String,
+        required: true,
+    },
+    platform: {
+        type: String,
+        required: true,
+    },
+    user_OS: {
+        type: String,
+        required: true,
+    },
+    expireAt: {
+        type: Date,
+        required: false,
+        expires: 0
+    }
+},
 
-    { 
-        versionKey: false 
+    {
+        versionKey: false
     },
 );
 

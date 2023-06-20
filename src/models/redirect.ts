@@ -2,19 +2,24 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 //This is how it will look in the DB
-const blogSchema = new Schema<IRedirect> ({
-        key:{
-            type: String,
-            required:true
-        },
-        url:{
-            type: String,
-            required:true
-        },
-    }, 
+const blogSchema = new Schema<IRedirect>({
+    key: {
+        type: String,
+        required: true
+    },
+    url: {
+        type: String,
+        required: true
+    },
+    expireAt: {
+        type: Date,
+        required: false,
+        expires: 0
+    }
+},
 
-    { 
-        versionKey: false 
+    {
+        versionKey: false
     },
 );
 

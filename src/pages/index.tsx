@@ -17,6 +17,7 @@ export default function Home() {
   async function onHandleSubmit(event: any) {
     //Typescript is typesafe. Use '(... as HTMLInputElement)' to grab the .value
     const textFieldInput = (document.getElementById('textField') as HTMLInputElement).value
+    const checkboxIsChecked = (document.getElementById('expireCheckbox') as HTMLInputElement).checked
 
     //Use "!" to prevent it from warning you about nulls
     const link = document.getElementById('link')!
@@ -53,7 +54,7 @@ export default function Home() {
     //If it's a correct URL, create the key and show it.
     if (isURL(textFieldInput)) {
       console.log('This is a URL: ' + textFieldInput)
-      const res = await axios.post("/api/create", { url: textFieldInput });
+      const res = await axios.post("/api/create", { url: textFieldInput, expire: checkboxIsChecked });
       const data = await res.data;
 
       hideAlertShowLink(true);
@@ -92,17 +93,26 @@ export default function Home() {
         <TopBar backgroundColor={'bg-indigo-500'} showMain={false} />
 
         <div className="justify-center items-center h-screen flex px-8">
-          <form className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500" onSubmit={onHandleSubmit}>
+          <form /* Form in the center of the screen */
+            className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 border-4 border-coolorange border-opacity-50 hover:border-opacity-100 transition-all duration-500" onSubmit={onHandleSubmit}>
+
             <div>
               <label className="block text-gray-700 text-md font-bold mb-2 text-left">
                 Ready to shorten?
               </label>
 
-              <input className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on"
+              <input /* URL Input */
+                className="shadow text-left appearance-none border rounded-lg md:rounded-l-lg md:rounded-r-none w-full md:w-96 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 focus:on"
                 id="textField" type="url" onChange={handleInputChangeTextField}
                 placeholder="Enter the link" required autoFocus />
 
               <button className='text-white shadow-md rounded-lg w-full md:w-32 md:rounded-r-lg md:rounded-l-none' id='submitButton'>Shorten</button>
+
+              <div /* Checkbox for expire after 5 days */
+                className="flex items-center mt-2">
+                <input id="expireCheckbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600" defaultChecked />
+                <label className="ml-2 text-sm font-medium text-slate-800">Expire after 5 days?</label>
+              </div>
 
               <div className='mt-4 text-md md:text-lg hidden items-center justify-center"' id='hiddenDiv'>
                 <div>
@@ -111,7 +121,7 @@ export default function Home() {
                   </label>
 
                   <Link href='/' className="text-blue-500 hover:underline" id='link' target='_top'>
-                    ${process.env.WEBSITE}
+                    ${process.env.REACT_APP_WEBSITE}
                   </Link>
 
                 </div>
