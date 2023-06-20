@@ -7,14 +7,16 @@ export async function getServerSideProps(context: any) {
   const userLanguage = context.req.headers['accept-language'];
 
   const key = context.query.code;
-  const res = await axios.post("/api/redirect", { key: key }, {
+  const res = await axios.post(process.env.REACT_APP_WEBSITE + "/api/redirect", { key: key }, {
     headers: {
       'User-Agent': userAgent,
       'accept-language': userLanguage
     }
   });
-  
-  
+  console.log(res.config.url);
+
+
+
   if (res.status !== 200) {
     return
   }
@@ -45,5 +47,5 @@ const Redirect: NextPage = () => {
 export default Redirect;
 
 function delay(ms: number) {
-  return new Promise( resolve => setTimeout(resolve, ms) );
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
