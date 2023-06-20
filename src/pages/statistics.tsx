@@ -36,7 +36,7 @@ export default function Statistics() {
             hideAlertShowLink(false);
             setFetched(false)
 
-        } else if(!res.data.error && !fetched) {
+        } else if (!res.data.error && !fetched) {
             const data: Statistics[] = res.data.statistics; // Extract the statistics data from the response
             console.log('This is a valid key: ' + textFieldInput);
             createTableRows(data); // Call the createTableRows function to populate the table
@@ -89,6 +89,8 @@ export default function Statistics() {
             <Head>
                 <title>Statistics</title>
                 <meta name="description" content="Who doesn't love stalking?" />
+                <meta property="og:title" content="URL Shortener" />
+                <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="overflow-auto h-full bg-customBGStats bg-no-repeat bg-cover bg-center absolute w-screen">
@@ -147,7 +149,7 @@ export default function Statistics() {
                         </table>
                     </div>
 
-                    <Copyright/>
+                    <Copyright />
 
                 </div>
             </div>

@@ -16,8 +16,11 @@ export default function Invalid() {
             <Head>
                 <title>Invalid URL</title>
                 <meta name="description" content="Something went wrong... Are you sure, that this is a valid URL?" />
+                <meta property="og:title" content="URL Shortener" />
+                <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <div className="h-screen bg-customBGInvalid bg-no-repeat bg-cover bg-center absolute w-screen">
                 <TopBar backgroundColor={'bg-red-500'} showMain={false} />
                 <div className="justify-center items-center h-screen flex flex-col gap-16 md:gap-24 text-center">

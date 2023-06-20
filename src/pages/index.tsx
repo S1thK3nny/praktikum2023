@@ -84,7 +84,9 @@ export default function Home() {
     <>
       <Head>
         <title>URL Shortener</title>
-        <meta name="description" content="S1th rulez" />
+        <meta property="og:title" content="URL Shortener" />
+        <meta name="description" content="Free URL Shortener fit for any desires." />
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
